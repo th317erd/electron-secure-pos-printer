@@ -1,0 +1,31 @@
+{
+  "name": "electron-secure-pos-printer",
+  "version": "1.0.0",
+  "description": "A secure POS (point of sale) printer for Electron",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node ./node_modules/.bin/jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/th317erd/electron-secure-pos-printer.git"
+  },
+  "keywords": [],
+  "author": "Wyatt Greenway",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/th317erd/electron-secure-pos-printer/issues"
+  },
+  "homepage": "https://github.com/th317erd/electron-secure-pos-printer#readme",
+  "peerDependencies": {
+    "electron": ">= 14.0.1"
+  },
+  "dependencies": {
+    "jsbarcode": "^3.11.5",
+    "nife": "^1.6.0",
+    "qrcode": "^1.5.0"
+  },
+  "devDependencies": {
+    "jasmine": "^4.0.2"
+  }
+}
