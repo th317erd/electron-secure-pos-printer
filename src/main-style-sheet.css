@@ -1,0 +1,73 @@
+@page {
+  margin: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: content-box;
+  font-size: 6mm;
+  width: 58mm;
+}
+
+#container,
+#container div {
+  display: flex;
+  flex-direction: column;
+}
+
+#container .section {
+  padding-left: 1mm;
+  padding-right: 1mm;
+  padding-top: 2mm;
+  padding-bottom: 2mm;
+}
+
+#container table {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: monospace, cursive;
+}
+
+#container table tbody {
+  border-top: 1px solid #999;
+}
+
+#container img {
+  image-rendering: pixelated;
+}
+
+table th,
+table td {
+  padding: 0.5mm 0.25mm;
+}
+
+table tr {
+  border-bottom: 1px dotted #999;
+  padding: 0.5mm 0;
+  text-align: center;
+}
+
+.print-preview-print-button-container {
+  margin: 0;
+  border: 0;
+  padding: 10mm 2mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: black dotted 2px;
+  margin-bottom: 4mm;
+}
+
+.print-preview-print-button-container button {
+  font-size: 5mm;
+  padding: 2mm 15mm;
+  font-weight: bold;
+}

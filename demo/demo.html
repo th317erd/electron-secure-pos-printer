@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Secure POS Printer Demo</title>
+
+    <style>
+      html,body {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        font-size: 10mm;
+      }
+
+      button {
+        font-size: 8mm;
+        padding: 5mm;
+      }
+
+      select {
+        font-size: 8mm;
+        padding: 5mm;
+      }
+
+      .printer-select-container {
+        padding-bottom: 5mm;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="printer-select-container">
+      <label for="printer">Printer: </label>
+      <select id="printer"></select>
+    </div>
+
+    <button onclick="sendToPrinter(event)">Print Test Page</button>
+
+    <script>
+      /* global securePOSPrinter */
+
+      function sendToPrinter() {
+        var data = [
+          {
+            type:     'text',
+            value:    'Testing 123',
+          },
+          {
+            type:     'qrCode',
+            value:    'https://www.saltlakefilmsociety.org/',
+            options: {
+              scale: 4,
+            },
+          },
+          {
+            type:     'barCode',
+            value:    123456789999,
+          },
+          {
+            type:     'image',
+            src:      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5gIREQQbbUH0CgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAMUlEQVQI13WOQQ4AIAzCWv//53kwmjiFYyGAAFBVbKmAjR7Ply6NK6Ufo7elqjye7k6T7hILeH2VsAAAAABJRU5ErkJggg==',
+            sectionStyle: {
+              alignItems: 'center',
+              justifyContent: 'center',
+            },
+            attributes: {
+              width: '100px',
+              height: '100px',
+            },
+          },
+          {
+            type:     'table',
+            header: [ 'Item', 'Price' ],
+            rows: [
+              [ 'Popcorn',  '$5.00' ],
+              [ 'Soda',     '$3.00' ],
+              [ 'Candy',    '$2.00' ],
+            ],
+            footer: [ 'Total', '$10.00' ],
+          },
+        ];
+
+        var selectBox = document.getElementById('printer');
+        var printerName = selectBox.value;
+
+        securePOSPrinter.print(data, { preview: true });
+      }
+
+      function init() {
+        securePOSPrinter.getPrinters().then(
+          (printers) => {
+            var selectBox = document.getElementById('printer');
+            var parts = [];
+
+            for (var i = 0, il = printers.length; i < il; i++) {
+              var printer = printers[i];
+              parts.push(`<option name="${printer.name}"${(i === 0) ? ' selected="true"' : ''}>${printer.displayName}</option>`);
+            }
+
+            selectBox.innerHTML = parts.join('');
+          },
+          (error) => {
+            alert(`Error while attempting to get printers: ${error.message}`);
+          }
+        )
+      }
+
+      init();
+    </script>
+  </body>
+</html>

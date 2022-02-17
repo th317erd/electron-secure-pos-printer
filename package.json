@@ -4,7 +4,8 @@
   "description": "A secure POS (point of sale) printer for Electron",
   "main": "src/index.js",
   "scripts": {
-    "test": "node ./node_modules/.bin/jasmine"
+    "test": "node ./node_modules/.bin/jasmine",
+    "demo": "node ./node_modules/.bin/electron ./demo/demo.js"
   },
   "repository": {
     "type": "git",
@@ -23,9 +24,11 @@
   "dependencies": {
     "jsbarcode": "^3.11.5",
     "nife": "^1.6.0",
-    "qrcode": "^1.5.0"
+    "qrcode": "^1.5.0",
+    "xmldom": "^0.6.0"
   },
   "devDependencies": {
+    "electron": "^17.0.1",
     "jasmine": "^4.0.2"
   }
 }
