@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022. Author Wyatt Greenway <th317erd@gmail.com>
+ */
+
+"use strict";
+
 const StyleUtils = require('../src/style-utils');
 
 describe("StyleUtils", () => {

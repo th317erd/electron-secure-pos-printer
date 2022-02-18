@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><title>Print Preview</title><style>@page {
+<html lang="en"><head><meta charset="UTF-8"><title>Print Preview</title><style>/*
+ * Copyright (c) 2022. Author Wyatt Greenway <th317erd@gmail.com>
+ */
+
+@page {
   margin: 0;
   margin: 0;
   padding: 0;

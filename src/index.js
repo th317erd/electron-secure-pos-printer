@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2022. Author Wyatt Greenway <th317erd@gmail.com>
+ */
+
+"use strict";
+
 const OS          = require('os');
 const Path        = require('path');
 const FileSystem  = require('fs');

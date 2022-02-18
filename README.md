@@ -195,8 +195,8 @@ Step 3: Inside your HTML
 ## The Print data object (common)
 | Option | Description | Default |
 | :----------- | :-------------- | :---------: |
-| sectionStyle | ([StyleType](#style-type)) style to apply to this section (the container of this content) | `null` |
-| style | ([StyleType](#style-type)) style to apply to this type | `null` |
+| sectionStyle | ([StyleType](#styletype)) style to apply to this section (the container of this content) | `null` |
+| style | ([StyleType](#styletype)) style to apply to this type | `null` |
 | type      | (string) One of `'text'`, `'qrCode'`, `'barCode'`, `'image'`, `'table'` | `'text'` |
 
 ## The Print data object (type = 'text')
@@ -331,20 +331,20 @@ var data = [
 | Option | Description | Default |
 | :----------- | :-------------- | :---------: |
 | bodyAttributes | (object) Attributes to assign to the `<tbody>` tag | `null` |
-| bodyStyle | ([StyleType](#style-type)) Style to apply to the `<tbody>` tag | `null` |
+| bodyStyle | ([StyleType](#styletype)) Style to apply to the `<tbody>` tag | `null` |
 | columnAttributes | (object) Attributes to assign to all `<td>` tags | `null` |
-| columnStyle | ([StyleType](#style-type)) Style to apply to all `<td>` tags | `null` |
+| columnStyle | ([StyleType](#styletype)) Style to apply to all `<td>` tags | `null` |
 | footer | (array[string]) Columns for the footer. If not specified, then there will be no table footer | `null` |
 | footerAttributes | (object) Attributes to assign to the `<tfoot>` tag | `null` |
-| footerStyle | ([StyleType](#style-type)) Style to apply to the `<tfoot>` tag | `null` |
+| footerStyle | ([StyleType](#styletype)) Style to apply to the `<tfoot>` tag | `null` |
 | header | (array[string]) Columns for the header. If not specified, then there will be no table header | `null` |
 | headerAttributes | (object) Attributes to assign to the `<thead>` tag | `null` |
-| headerStyle | ([StyleType](#style-type)) Style to apply to the `<thead>` tag | `null` |
+| headerStyle | ([StyleType](#styletype)) Style to apply to the `<thead>` tag | `null` |
 | rowAttributes | (object) Attributes to assign to all `<tr>` or `<th>` tags | `null` |
 | rows | (array[array[string]]) **REQUIRED** An array (rows) of arrays (columns) for the table | `null` |
-| rowStyle | ([StyleType](#style-type)) Style to apply to all `<tr>` or `<th>` tags | `null` |
+| rowStyle | ([StyleType](#styletype)) Style to apply to all `<tr>` or `<th>` tags | `null` |
 | tableAttributes | (object) Attributes to assign to the `<table>` tag | `null` |
-| tableStyle | ([StyleType](#style-type)) Style to apply to the `<table>` tag | `null` |
+| tableStyle | ([StyleType](#styletype)) Style to apply to the `<table>` tag | `null` |
 
 
 *Note: The number of columns must be the same for every row or an exception will be thrown*
@@ -373,7 +373,7 @@ Styles can be applied to elements in a number of different ways. All of the foll
 2. As an object: `{ borderWidth: '0.5mm', color: 'red' }`
 3. As an array of strings or objects: `[ 'border-width: 0.5mm; color: red;', { borderWidth: '0.5mm', color: 'red' }, rootStyleObject ]`. If using an array of styles, then all styles will be parsed and merged into a single style sheet.
 
-*Note: When using object notation for styles, if you use an `number` for any value, then by default it will be converted into a mm unit. For example, `{ width: 10 }` would be converted into `'width: 10mm'`*
+*Note: When using object notation for styles, if you use a `number` for any value, then by default it will be converted into a `mm` unit. For example, `{ width: 10 }` would be converted into `'width: 10mm'` automatically. If a certain style actually needs a raw number, then specify your style as a string instead.*
 
 # About the HTML content for the printer
 
@@ -403,7 +403,10 @@ The content that gets renderered for the printer has roughly the following struc
 Refer to `./src/main-style-sheet.css` for the default styles applied to the print document.
 
 If you request `preview: true` in the options, then extra scripts and content will be injected into the preview document to enable the "Cancel" and "Print" buttons at the top of the preview to function properly.
+
 # Sponors
+
+Many thanks to all our sponors!
 
 **This work was sponsored by MAST @ Salt Lake Film Society**
 

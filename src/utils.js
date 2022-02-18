@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2022. Author Wyatt Greenway <th317erd@gmail.com>
+ */
+
+"use strict";
 
 const URL_SAFE_BASE64_CONVERSION_MAP = { '+': '-', '/': '_' };
 
