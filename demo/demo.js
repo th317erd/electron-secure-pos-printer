@@ -17,8 +17,6 @@ function createWindow() {
 
   mainWindow.loadFile(Path.join(__dirname, 'demo.html'));
 
-  mainWindow.webContents.openDevTools();
-
   mainWindow.on('closed', function () {
     mainWindow = null;
   });

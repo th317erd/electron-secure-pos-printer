@@ -18,9 +18,6 @@
     "url": "https://github.com/th317erd/electron-secure-pos-printer/issues"
   },
   "homepage": "https://github.com/th317erd/electron-secure-pos-printer#readme",
-  "peerDependencies": {
-    "electron": ">= 14.0.1"
-  },
   "dependencies": {
     "jsbarcode": "^3.11.5",
     "nife": "^1.6.0",

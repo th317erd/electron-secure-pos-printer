@@ -73,7 +73,7 @@ async function renderQRCode(line, options) {
     line.value,
     Object.assign({
       errorCorrectionLevel: 'Q',
-      scale: 10,
+      scale: 5,
     }, line.options || {})
   );
 
@@ -105,7 +105,7 @@ function renderBarCode(line, options) {
   );
 
   var svgText = xmlSerializer.serializeToString(svgNode);
-  var dataURI = `data:image/svg+xml;base64,${Utils.toURLSafeBase64(svgText)}`;
+  var dataURI = `data:image/svg+xml;base64,${Utils.toBase64(svgText)}`;
 
   return renderSection(
     renderElement(
@@ -130,7 +130,7 @@ async function renderImage(line, options) {
     var filePath  = Path.resolve(line.path);
     var content   = await FileSystem.readFile(filePath);
 
-    dataURI = `data:${line.mimeType};base64,${Utils.toURLSafeBase64(content)}`;
+    dataURI = `data:${line.mimeType};base64,${Utils.toBase64(content)}`;
   }
 
   var src = dataURI;
@@ -333,13 +333,14 @@ async function generateHTMLDocumentForPrinter(data, _options) {
           renderElement('title', null, 'Print Preview'),
           renderElement('style', null, MAIN_STYLE_SHEET),
           (Nife.isNotEmpty(options.styleSheet)) ? renderElement('style', null, options.styleSheet) : null,
+          renderElement('script', null, `var SECURE_POS_PRINTER_DOCUMENT_ID='${options.documentID}';`),
         ].filter(Boolean).join(''),
       ),
       renderElement(
         'body',
-        Object.assign({}, options.bodyAttributes || {}),
+        Object.assign({}, options.bodyAttributes || {}, { class: (options.preview) ? 'preview' : null }),
         [
-          (options.preview) ? `<div class="print-preview-print-button-container"><button onclick="securePOSPrinterPrintDocument(event)">Print</button><script>var SECURE_POS_PRINTER_DATA=${JSON.stringify(data)};var SECURE_POS_PRINTER_OPTIONS=${JSON.stringify(options)};${PRINT_PREVIEW_SCRIPT}</script></div>` : null,
+          (options.preview) ? `<div class="print-preview-print-button-container"><button onclick="securePOSPrinterCancelPrint(event)">Cancel</button><button onclick="securePOSPrinterPrintDocument(event)">Print</button><script>var SECURE_POS_PRINTER_DATA=${JSON.stringify(data)};var SECURE_POS_PRINTER_OPTIONS=${JSON.stringify(options)};${PRINT_PREVIEW_SCRIPT}</script></div>` : null,
           renderElement(
             'div',
             Object.assign({}, options.containerAttributes || {}, { id: 'container' }),

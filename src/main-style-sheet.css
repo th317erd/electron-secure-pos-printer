@@ -15,6 +15,15 @@ body {
   width: 58mm;
 }
 
+body.preview {
+  width: 90mm;
+}
+
+#container {
+  width: 58mm;
+  margin: 0 auto;
+}
+
 #container,
 #container div {
   display: flex;
@@ -56,18 +65,21 @@ table tr {
 }
 
 .print-preview-print-button-container {
+  display: flex;
+  flex: 0 0 auto;
   margin: 0;
   border: 0;
   padding: 10mm 2mm;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   border-bottom: black dotted 2px;
   margin-bottom: 4mm;
 }
 
 .print-preview-print-button-container button {
   font-size: 5mm;
-  padding: 2mm 15mm;
+  padding: 2mm 10mm;
   font-weight: bold;
 }
