@@ -11,7 +11,13 @@
     "type": "git",
     "url": "git+https://github.com/th317erd/electron-secure-pos-printer.git"
   },
-  "keywords": [],
+  "keywords": [
+    "electron",
+    "kiosk",
+    "point-of-sale",
+    "pos",
+    "printer"
+  ],
   "author": "Wyatt Greenway",
   "license": "MIT",
   "bugs": {
