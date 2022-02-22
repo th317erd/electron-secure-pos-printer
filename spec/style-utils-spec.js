@@ -4,7 +4,8 @@
 
 "use strict";
 
-const StyleUtils = require('../src/style-utils');
+const StyleUtils          = require('../src/style-utils');
+const { matchesSnapshot } = require('./support/test-utils');
 
 describe("StyleUtils", () => {
   describe("convertStyleNameToCSSName", () => {
@@ -91,6 +92,30 @@ describe("StyleUtils", () => {
         [ { fontSize: '10px', justifyContent: 'center' }, 'padding: 10px', 'margin: 10px; height: 10mm', { border: 1 } ],
         { borderWidth: 1 },
       )).toEqual('align-items:"center";border:1mm;border-width:1mm;color:red;font-size:10px;height:10mm;justify-content:center;line-height:1;margin:10px;padding:10px;width:10px;');
+    });
+  });
+
+  describe("convertObjectToStyleSheet", () => {
+    it("should be able to generate an entire style sheet from an object", () => {
+      var result = StyleUtils.convertObjectToStyleSheet({
+        '#container div': { color: 'blue' },
+        'span': 'width: 10px\nheight: 1mm; color : red; align-items: center;\n;line-height: 1',
+        'table': [ { fontSize: '10px', justifyContent: 'center' }, 'padding: 10px', 'margin: 10px; height: 10mm', { border: 1 } ],
+        'table tr': { borderWidth: 1 },
+      });
+
+      matchesSnapshot('StyleUtils-convertObjectToStyleSheet01', result);
+    });
+
+    it("should be able to handle a string", () => {
+      expect(StyleUtils.convertObjectToStyleSheet('color:red;')).toEqual('color:red;');
+    });
+
+    it("should be able to handle a falsy", () => {
+      expect(StyleUtils.convertObjectToStyleSheet(false)).toEqual(false);
+      expect(StyleUtils.convertObjectToStyleSheet(0)).toEqual(0);
+      expect(StyleUtils.convertObjectToStyleSheet(null)).toEqual(null);
+      expect(StyleUtils.convertObjectToStyleSheet(undefined)).toEqual(undefined);
     });
   });
 });

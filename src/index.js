@@ -79,6 +79,12 @@ function printData(data, _options) {
       // Load the print document we have generated and written
       previewWindow.loadFile(tempPath);
 
+      if (options.preview && options.developmentMode) {
+        previewWindow.webContents.openDevTools({
+          mode: 'right'
+        });
+      }
+
       previewWindow.webContents.on('did-finish-load', async () => {
         // If previewing, then return, and wait for the user to click the "Print" (or "Cancel") button
         if (options.preview) {

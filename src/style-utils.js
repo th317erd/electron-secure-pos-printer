@@ -79,6 +79,8 @@ function mergeStyles(...args) {
 
   for (var i = 0, il = styles.length; i < il; i++) {
     var style = styles[i];
+    if (!style)
+      continue;
 
     if (Nife.instanceOf(style, 'array'))
       style = mergeStyles.apply(this, style);
@@ -98,12 +100,33 @@ function compileStyles(...args) {
   return convertStyleObjectToCSS(finalStyle);
 }
 
+function convertObjectToStyleSheet(obj) {
+  if (!obj)
+    return obj;
+
+  if (Nife.instanceOf(obj, 'string'))
+    return obj;
+
+  var selectors   = Object.keys(obj).sort();
+  var styleSheet  = [];
+
+  for (var i = 0, il = selectors.length; i < il; i++) {
+    var selector  = selectors[i];
+    var style     = compileStyles(obj[selector]);
+
+    styleSheet.push(`${selector} {${style}}`);
+  }
+
+  return styleSheet.join('\n');
+}
+
 module.exports = {
   convertStyleNameToCSSName,
   convertCSSNameToStyleName,
   parseCSSStringToObject,
   convertStyleValueToCSSValue,
   convertStyleObjectToCSS,
+  convertObjectToStyleSheet,
   mergeStyles,
   compileStyles,
 };

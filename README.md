@@ -181,6 +181,7 @@ Step 3: Inside your HTML
 | bodyAttributes | (object) Attributes to assign directly to the `body` tag in the document | `null` |
 | containerAttributes | (object) Attributes to assign directly to the `<div id="container">` element in the document. Inside this container is where all the `data` content is rendered | `null` |
 | copies     | (number) number of copies to print | `1` |
+| developmentMode | (boolean) If `true`, then launch the dev-tools for the preview window (only works if `preview` is `true`) | `false` |
 | htmlAttributes | (object) Attributes to assign directly to the `html` tag in the document | `{ lang: "en" }` |
 | margin | (string)  margin of a page, css values can be used   | `0` |
 | pageSize | (string) Specify the page medium for the printer | `'A4'` |
@@ -190,7 +191,7 @@ Step 3: Inside your HTML
 | printerName | (string) the printer's name      | `null` |
 | printOptions | (object) Options to pass directly to [Electron.WebContents.print](https://www.electronjs.org/docs/latest/api/web-contents#contentsprintoptions-callback) | `null` |
 | silent | (boolean) To print silently without printer selection pop-up | `true` |
-| styleSheet | (string) A style sheet (not a file name) to apply globally to the document. This gets inserted in the `head` of the document | `null` |
+| styleSheet | (string/object) A style sheet (not a file name) to apply globally to the document. This gets inserted in the `head` of the document. If this is an object, then the keys are selectors, and the values are [StyleType](#styletype) | `null` |
 
 ## The Print data object (common)
 | Option | Description | Default |

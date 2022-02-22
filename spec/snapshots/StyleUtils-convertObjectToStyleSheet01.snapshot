@@ -1,0 +1,4 @@
+#container div {color:blue;}
+span {align-items:center;color:red;height:1mm;line-height:1;width:10px;}
+table {border:1mm;font-size:10px;height:10mm;justify-content:center;margin:10px;padding:10px;}
+table tr {border-width:1mm;}

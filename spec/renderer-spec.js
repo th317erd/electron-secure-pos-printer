@@ -4,21 +4,9 @@
 
 "use strict";
 
-const Path        = require('path');
-const FileSystem  = require('fs');
-const Renderer    = require('../src/renderer');
-
-function matchesSnapshot(name, result) {
-  var snapshotPath = Path.resolve(__dirname, 'snapshots', `${name}.snapshot`);
-
-  if (!FileSystem.existsSync(snapshotPath)) {
-    FileSystem.writeFileSync(snapshotPath, result, 'utf8');
-    return;
-  }
-
-  var snapshot = FileSystem.readFileSync(snapshotPath, 'utf8');
-  expect(result).toEqual(snapshot);
-}
+const Path                = require('path');
+const Renderer            = require('../src/renderer');
+const { matchesSnapshot } = require('./support/test-utils');
 
 describe("Renderer", () => {
   describe("renderElement", () => {
@@ -43,7 +31,7 @@ describe("Renderer", () => {
         },
       });
 
-      matchesSnapshot('renderText-1', result);
+      matchesSnapshot('Renderer-renderText-1', result);
     });
 
     it("should be able to render raw text", () => {
@@ -57,7 +45,7 @@ describe("Renderer", () => {
         },
       });
 
-      matchesSnapshot('renderText-2', result);
+      matchesSnapshot('Renderer-renderText-2', result);
     });
   });
 
@@ -75,7 +63,7 @@ describe("Renderer", () => {
         },
       });
 
-      matchesSnapshot('renderQRCode-1', result);
+      matchesSnapshot('Renderer-renderQRCode-1', result);
     });
   });
 
@@ -90,7 +78,7 @@ describe("Renderer", () => {
         },
       });
 
-      matchesSnapshot('renderBarCode-1', result);
+      matchesSnapshot('Renderer-renderBarCode-1', result);
     });
   });
 
@@ -119,7 +107,7 @@ describe("Renderer", () => {
         },
       });
 
-      matchesSnapshot('renderImage-1', result);
+      matchesSnapshot('Renderer-renderImage-1', result);
     });
   });
 
@@ -181,7 +169,7 @@ describe("Renderer", () => {
         footer: [ 'Total', '$10.00' ],
       });
 
-      matchesSnapshot('renderTable-1', result);
+      matchesSnapshot('Renderer-renderTable-1', result);
     });
   });
 
@@ -220,7 +208,7 @@ describe("Renderer", () => {
         },
       ]);
 
-      matchesSnapshot('renderDataAsHTML-1', result);
+      matchesSnapshot('Renderer-renderDataAsHTML-1', result);
     });
   });
 
@@ -259,7 +247,7 @@ describe("Renderer", () => {
         },
       ]);
 
-      matchesSnapshot('generateHTMLDocumentForPrinter-1', result);
+      matchesSnapshot('Renderer-generateHTMLDocumentForPrinter-1', result);
     });
   });
 });

@@ -338,7 +338,7 @@ async function generateHTMLDocumentForPrinter(data, _options) {
           renderElement('meta', { charset: 'UTF-8' }),
           renderElement('title', null, 'Print Preview'),
           renderElement('style', null, MAIN_STYLE_SHEET),
-          (Nife.isNotEmpty(options.styleSheet)) ? renderElement('style', null, options.styleSheet) : null,
+          (Nife.isNotEmpty(options.styleSheet)) ? renderElement('style', null, StyleUtils.convertObjectToStyleSheet(options.styleSheet)) : null,
           renderElement('script', null, `var SECURE_POS_PRINTER_DOCUMENT_ID='${options.documentID}';`),
         ].filter(Boolean).join(''),
       ),
