@@ -1,6 +1,6 @@
 {
   "name": "electron-secure-pos-printer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A secure POS (point of sale) printer for Electron",
   "main": "src/index.js",
   "scripts": {
