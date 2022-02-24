@@ -178,6 +178,7 @@ Step 3: Inside your HTML
 ## Printing options
 | Option        |  Description         | Default Value |
 | :------------- |:-------------| :----------: |
+| addFinalMargin| (boolean) If `true`, then add a little extra margin at the bottom of the print content | `true` |
 | bodyAttributes | (object) Attributes to assign directly to the `body` tag in the document | `null` |
 | containerAttributes | (object) Attributes to assign directly to the `<div id="container">` element in the document. Inside this container is where all the `data` content is rendered | `null` |
 | copies     | (number) number of copies to print | `1` |
