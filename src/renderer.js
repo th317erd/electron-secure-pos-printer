@@ -327,7 +327,7 @@ async function generateHTMLDocumentForPrinter(_data, _options) {
   var options     = _options || {};
   var data        = _data.slice();
 
-  if (options.addFinalMargin === false) {
+  if (options.addFinalMargin !== false) {
     data.push({
       type:   'text',
       value:  '<br><br><br><br><hr>',
