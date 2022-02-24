@@ -16,7 +16,7 @@ body {
   border: 0;
   box-sizing: content-box;
   font-size: 6mm;
-  width: 58mm;
+  width: 64mm;
 }
 
 body.preview {
@@ -24,7 +24,7 @@ body.preview {
 }
 
 #container {
-  width: 58mm;
+  width: 64mm;
   margin: 0 auto;
 }
 
@@ -39,6 +39,10 @@ body.preview {
   padding-right: 1mm;
   padding-top: 2mm;
   padding-bottom: 2mm;
+}
+
+#container .section:first-child {
+  padding-top: 0;
 }
 
 #container table {

@@ -323,8 +323,21 @@ async function renderDataAsHTML(_data, _options) {
   return results.join('');
 }
 
-async function generateHTMLDocumentForPrinter(data, _options) {
+async function generateHTMLDocumentForPrinter(_data, _options) {
   var options     = _options || {};
+  var data        = _data.slice();
+
+  if (options.addFinalMargin === false) {
+    data.push({
+      type:   'text',
+      value:  '<br><br><br><br><hr>',
+      raw:    true,
+      sectionStyle: {
+        lineHeight: '5mm',
+      },
+    });
+  }
+
   var dataContent = await renderDataAsHTML(data, options);
 
   var content = renderElement(
