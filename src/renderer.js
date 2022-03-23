@@ -16,7 +16,7 @@ const JsBarcode       = require('jsbarcode');
 const {
   DOMImplementation,
   XMLSerializer,
-} = require('xmldom');
+} = require('@xmldom/xmldom');
 
 const MAIN_STYLE_SHEET      = FileSystemSync.readFileSync(Path.resolve(__dirname, 'main-style-sheet.css'), 'utf8');
 const PRINT_PREVIEW_SCRIPT  = FileSystemSync.readFileSync(Path.resolve(__dirname, 'print-preview-script.js'), 'utf8');
