@@ -97,6 +97,7 @@
       function init() {
         securePOSPrinter.getPrinters().then(
           (printers) => {
+            console.log('PRINTERS: ', printers);
             var selectBox = document.getElementById('printer');
             var parts = [];
 

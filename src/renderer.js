@@ -8,8 +8,8 @@ const Path            = require('path');
 const FileSystem      = require('fs/promises');
 const FileSystemSync  = require('fs');
 const Nife            = require('nife');
-const StyleUtils      = require('./style-utils');
-const Utils           = require('./utils');
+const StyleUtils      = require('./style-utils.js');
+const Utils           = require('./utils.js');
 const QRCode          = require('qrcode');
 const JsBarcode       = require('jsbarcode');
 

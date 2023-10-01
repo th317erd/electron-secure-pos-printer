@@ -25,13 +25,13 @@
   },
   "homepage": "https://github.com/th317erd/electron-secure-pos-printer#readme",
   "dependencies": {
-    "@xmldom/xmldom": "^0.8.1",
+    "@xmldom/xmldom": "^0.8.10",
     "jsbarcode": "^3.11.5",
-    "nife": "^1.6.0",
-    "qrcode": "^1.5.0"
+    "nife": "^1.12.1",
+    "qrcode": "^1.5.3"
   },
   "devDependencies": {
-    "electron": "^17.0.1",
-    "jasmine": "^4.0.2"
+    "electron": "^26.2.4",
+    "jasmine": "^5.1.0"
   }
 }

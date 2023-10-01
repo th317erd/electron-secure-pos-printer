@@ -5,6 +5,6 @@
 "use strict";
 
 const { contextBridge, ipcRenderer }  = require('electron');
-const { setupSecureBridge }           = require('../src');
+const { setupSecureBridge }           = require('../src/index.js');
 
 setupSecureBridge(contextBridge, ipcRenderer);

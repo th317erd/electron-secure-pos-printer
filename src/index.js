@@ -7,8 +7,8 @@
 const OS          = require('os');
 const Path        = require('path');
 const FileSystem  = require('fs');
-const Renderer    = require('./renderer');
-const Utils       = require('./utils');
+const Renderer    = require('./renderer.js');
+const Utils       = require('./utils.js');
 
 var alreadySetup = false;
 const previewWindowMap = {};
@@ -69,6 +69,7 @@ function printData(data, _options) {
         show: !!options.preview,
         webPreferences: {
           preload: Path.join(__dirname, 'preload.js'),
+          sandbox: false,
         },
       });
 

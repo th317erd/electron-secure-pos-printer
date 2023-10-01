@@ -7,7 +7,7 @@
 const Path      = require('path');
 const Electron  = require('electron');
 
-const { setupSecurePOSPrinter } = require('../src');
+const { setupSecurePOSPrinter } = require('../src/index.js');
 
 var mainWindow;
 
@@ -17,7 +17,8 @@ function createWindow() {
     height: 600,
     show: true,
     webPreferences: {
-      preload: Path.join(__dirname, 'preload.js')
+      preload: Path.join(__dirname, 'preload.js'),
+      sandbox: false,
     },
   });
 
